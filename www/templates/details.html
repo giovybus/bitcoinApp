@@ -1,0 +1,107 @@
+<ion-view view-title="Details">
+  <ion-content>
+
+      <div class="item item-divider">
+          user details
+      </div>
+
+      <div class="list">
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-person"></i>
+              {{ pool.username }}
+          </a>
+
+          <div class="item item-divider">
+              wallet address
+          </div>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-card"></i>
+              {{ pool.wallet }}
+          </a>
+
+          <div class="item item-divider">
+              rewards
+          </div>
+
+          <a class="item item-icon-left" style="color: red" href="#">
+              <i class="icon ion-social-bitcoin" style="color: #000000"></i>
+              {{ pool.estimated_reward }}
+              <span class="item-note">(estimated)</span>
+          </a>
+
+          <a class="item item-icon-left" style="color: orange" href="#">
+              <i class="icon ion-social-bitcoin" style="color: #000000"></i>
+              {{ pool.unconfirmed_reward }}
+              <span class="item-note">(unconfirmed)</span>
+          </a>
+
+          <a class="item item-icon-left" style="color: green" href="#">
+              <i class="icon ion-social-bitcoin-outline" style="color: #000000"></i>
+              {{ pool.confirmed_reward }}
+              <span class="item-note">(confirmed)</span>
+          </a>
+
+          <div class="item item-divider">
+             USD currency
+          </div>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-social-usd"></i>
+              {{ (pool.confirmed_reward * currency.USD.last) | currency : "" }}
+              <span class="item-note">(confirmed USD)</span>
+          </a>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-social-usd"></i>
+                {{ currency.USD.last | currency : ""}}
+                <span class="item-note">(1.0 BTC)</span>
+          </a>
+
+
+          <div class="item item-divider">
+              EUR currency
+          </div>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-social-euro"></i>
+              {{ (pool.confirmed_reward * currency.EUR.last) | currency : ""}}
+              <span class="item-note">(confirmed EUR)</span>
+          </a>
+
+          <a class="item item-icon-left" href="#">
+              <i class="icon ion-social-euro"></i>
+              {{ currency.EUR.last | currency : ""}}
+              <span class="item-note">(1.0 BTC)</span>
+          </a>
+
+
+          <div class="item item-divider">
+            try yourself
+          </div>
+
+          <div class="item item-input-inset">
+              <label class="item-input-wrapper">
+                  <input type="number" placeholder="enter BTC" ng-model="btc">
+              </label>
+                <i class="ion ion-code"></i>
+              <label class="item-input-wrapper">
+                  <input type="number" placeholder="enter USD" ng-model="btc">
+              </label>
+          </div>
+
+
+
+          <a class="item item-icon-left" href="#">
+                      <span class="item-note">
+                          {{(btc * currency.USD.last) | currency }}
+                      </span><br>
+                      <span class="item-note">
+                          {{(btc * currency.EUR.last) | currency : "&euro;" }}
+                      </span>
+          </a>
+      </div>
+    <br><br>
+  </ion-content>
+</ion-view>
